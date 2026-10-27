@@ -32,15 +32,16 @@
         </button>
         <div class="dropdown">
           <button class="btn btn-sm btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown" type="button">
-            {% if lang == 'de' %}
-            <span class="fi fi-de me-1"></span>DE
-            {% else %}
+            {% if lang == 'en' %}
             <span class="fi fi-gb me-1"></span>EN
+            {% else %}
+            <span class="fi fi-{{ lang }} me-1"></span>{{ lang.upper() }}
             {% endif %}
           </button>
           <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" href="{{ url_for('web.set_language', lang_code='de', next=request.full_path) }}"><span class="fi fi-de me-2"></span>Deutsch</a></li>
             <li><a class="dropdown-item" href="{{ url_for('web.set_language', lang_code='en', next=request.full_path) }}"><span class="fi fi-gb me-2"></span>English</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('web.set_language', lang_code='it', next=request.full_path) }}"><span class="fi fi-it me-2"></span>Italiano</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('web.set_language', lang_code='de', next=request.full_path) }}"><span class="fi fi-de me-2"></span>Deutsch</a></li>
           </ul>
         </div>
         {% if g.user %}
